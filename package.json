@@ -1,7 +1,7 @@
 {
   "name": "ng1-template-gulp",
-  "version": "1.0.0-alpha001",
-  "description": "NPM package that contains Gulp tasks and default configurations needed by the Angular 1.5 template",
+  "version": "1.0.0-alpha002",
+  "description": "Gulp tasks and default configurations for the Angular 1.5 template",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -15,5 +15,12 @@
   "bugs": {
     "url": "https://github.com/angular-template/ng1-template-gulp/issues"
   },
-  "homepage": "https://github.com/angular-template/ng1-template-gulp#readme"
+  "homepage": "https://github.com/angular-template/ng1-template-gulp#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-load-plugins": "^1.2.4",
+    "gulp-task-listing": "^1.0.1",
+    "require-dir": "^0.3.0",
+    "wiredep": "^4.0.0"
+  }
 }

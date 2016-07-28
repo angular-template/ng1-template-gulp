@@ -10,7 +10,7 @@ npm install --save-dev ng1-template-gulp
 ```
 
 ## Basic Usage
-```node
+```js
 // Load the package
 var ng1TemplateGulp = require('ng1-template-gulp');
 

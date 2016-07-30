@@ -1,4 +1,7 @@
+
 Contains Gulp tasks and the default configurations needed by the Angular 1.5 template.
+
+*Note: This package is specifically meant for use with the [Angular 1.5 template](https://github.com/angular-template/ng1-template)*
 
 ## Installation
 The ng1-template-gulp package is already specified in the Angular 1.5 template's dev dependencies.

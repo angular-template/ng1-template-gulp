@@ -1,6 +1,6 @@
 {
   "name": "ng1-template-gulp",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Gulp tasks and default configurations for the Angular 1.5 template",
   "main": "index.js",
   "keywords": [

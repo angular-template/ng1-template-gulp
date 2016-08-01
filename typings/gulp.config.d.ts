@@ -9,7 +9,7 @@ declare let module: {
 
 declare interface IConfig {
     /**
-     * Well-known folders.
+     * Well-known folders in the template.
      * DO NOT CHANGE.
      */
     folders: {
@@ -33,11 +33,32 @@ declare interface IConfig {
         failOnVetError: boolean,
         vetBeforeDevBuild: boolean
     },
+    /**
+     * Collection of modules in the application.
+     * The collection must be ordered in increasing levels of dependency on other application modules.
+     * For example, the common module should be first in the collection as all other modules depend on it.
+     */
     modules: IModule[];
+
+    /**
+     * List of 3rd-party modules that all modules depend on.
+     */
     coreDependencies: string[];
+
+    /**
+     * Global style settings for the application.
+     */
     styles?: {
+        /**
+         * Set to true if you use LESS in the application.
+         */
         usesLess: boolean;
+
+        /**
+         * Set to true if you use SASS in the application.
+         */
         usesSass: boolean;
+
         injections: string[];
         css: string[];
         less: string[];

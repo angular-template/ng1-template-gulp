@@ -1,5 +1,7 @@
 declare interface IUtils {
     createModule: (name: string, config?: IConfig) => IModule;
+    log: (message: string | Object, color: any) => void;
+    exclude: (glob: string | string[]) => (string | string[]);
 }
 
 declare function require(name: string): (IUtils | any);
@@ -29,9 +31,38 @@ declare interface IConfig {
         devBuildStyles: string;
         distBuild: string;
     },
+
+    /**
+     * Preferences that control how the Gulp processes behave.
+     */
     preferences: {
+        /**
+         * Throws an exception to fail the Gulp process if any of the vet tasks fails.
+         * This is useful in continuous integrations systems to indicate an error in the build
+         * process and allows the CI process to be stopped.
+         * It is typically not required in the development environment, when running from the
+         * command line.
+         */
         failOnVetError: boolean,
-        vetBeforeDevBuild: boolean
+
+        /**
+         * Run the vet tasks before every build. This is useful to continuously check your code
+         * correctness and catch issues fast.
+         * Note that the vet tasks are not executed in watch mode (whenever a change is detected);
+         * they are only run the gulp build or gulp serve task from the command line.
+         */
+        vetBeforeDevBuild: boolean,
+
+        /**
+         * Indicates whether the application should be launched for Gulp serve tasks (serve and
+         * serve-dist).
+         * You can also specify a string value that indicates the initial URL path to launch the
+         * browser with.
+         * For example, if you specify a value of '/customers/list', the browser will be launched
+         * at the URL <base-url>/customers/list.
+         * You can control this behavior from the command line by using the --launch option.
+         */
+        launchBrowserOnServe: boolean | string,
     },
     /**
      * Collection of modules in the application.

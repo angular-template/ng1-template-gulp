@@ -48,7 +48,7 @@ declare interface IConfig {
     /**
      * Global style settings for the application.
      */
-    styles?: {
+    styles: {
         /**
          * Set to true if you use LESS in the application.
          */
@@ -64,6 +64,49 @@ declare interface IConfig {
         less: string[];
         sass: string[];
     };
+
+    /**
+     * Environment-specific configuration settings.
+     */
+    config: {
+        /**
+         * Environment to use to generate the config script file if one is not specified.
+         */
+        defaultEnv: string;
+
+        /**
+         * List of additional environments to create config scripts for during a dist build.
+         * These additional config files will be named 'config.<env>.js'.
+         * Useful for when we want to redeploy the app without having to run the Gulp tasks each time.
+         */
+        generateEnvs: string[];
+    },
+
+    /**
+     * TSLint settings for different sets of Typescript files.
+     */
+    tslint: {
+        /**
+         * Descriptive name for the rules, to be displayed in the Gulp output.
+         */
+        description: string;
+
+        /**
+         * Path to the TSLint config file. The file name does not need to be tslint.json.
+         */
+        config: string;
+
+        /**
+         * One or more file globs that specify the Typescript files to lint under this ruleset.
+         */
+        files: string[];
+    }[];
+
+    getStyleAssets: (cssFolder: string, cssParentFolder: string) => {
+        src: string;
+        dest: string;
+        areImages?: boolean;
+    }[];
 }
 
 declare interface IModule {
@@ -74,6 +117,7 @@ declare interface IModule {
         less: string[];
         sass: string[];
     }[];
+    jsOutputFolder?: string;
     jsToInject?: string[];
     firstInjectJs?: string[];
     htmls?: {

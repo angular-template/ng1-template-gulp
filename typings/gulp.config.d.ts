@@ -97,6 +97,21 @@ declare interface IConfig {
     };
 
     /**
+     * Static files and assets in the application.
+     */
+    staticFiles: {
+        images: {[name: string]: (rootFolder: string, cssFolder: string) => {
+            src: string | string[];
+            dest: string;
+        }};
+
+        fonts: {[name: string]: (rootFolder: string, cssFolder: string) => {
+            src: string | string[];
+            dest: string;
+        }};
+    };
+
+    /**
      * Environment-specific configuration settings.
      */
     config: {

@@ -146,6 +146,11 @@ declare interface IConfig {
          * One or more file globs that specify the Typescript files to lint under this ruleset.
          */
         files: string[];
+
+        /**
+         * One or more file globs that specify the files to exclude from the linting.
+         */
+        exclude: string[];
     }[];
 
     getStyleAssets: (cssFolder: string, cssParentFolder: string) => {

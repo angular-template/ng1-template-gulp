@@ -131,33 +131,7 @@ declare interface IConfig {
     /**
      * TSLint settings for different sets of Typescript files.
      */
-    tslint: {
-        /**
-         * Descriptive name for the rules, to be displayed in the Gulp output.
-         */
-        description: string;
-
-        /**
-         * Path to the TSLint config file. The file name does not need to be tslint.json.
-         */
-        config: string;
-
-        /**
-         * One or more file globs that specify the Typescript files to lint under this ruleset.
-         */
-        files: string[];
-
-        /**
-         * One or more file globs that specify the files to exclude from the linting.
-         */
-        exclude: string[];
-    }[];
-
-    getStyleAssets: (cssFolder: string, cssParentFolder: string) => {
-        src: string;
-        dest: string;
-        areImages?: boolean;
-    }[];
+    tslint: {[name: string]: ITsLintRule}
 }
 
 declare interface IModule {
@@ -176,4 +150,26 @@ declare interface IModule {
         root?: string;
         taCache?: string;
     }
+}
+
+declare interface ITsLintRule {
+    /**
+     * Descriptive name for the rules, to be displayed in the Gulp output.
+     */
+    description: string;
+
+    /**
+     * Path to the TSLint config file. The file name does not need to be tslint.json.
+     */
+    config: string;
+
+    /**
+     * One or more file globs that specify the Typescript files to lint under this ruleset.
+     */
+    files: string[];
+
+    /**
+     * One or more file globs that specify the files to exclude from the linting.
+     */
+    exclude: string[];
 }

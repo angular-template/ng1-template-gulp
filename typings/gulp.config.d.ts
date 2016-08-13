@@ -63,6 +63,8 @@ declare interface IConfig {
          * You can control this behavior from the command line by using the --launch option.
          */
         launchBrowserOnServe: boolean | string,
+
+        lineEndings: 'LF'|'CR'|'CRLF';
     },
     /**
      * Collection of modules in the application.

@@ -78,6 +78,10 @@ declare interface IConfig {
      */
     coreDependencies: string[];
 
+    scripts: {
+        sourceMaps: boolean;
+    };
+
     /**
      * Global style settings for the application.
      */

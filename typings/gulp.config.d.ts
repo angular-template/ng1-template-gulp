@@ -141,7 +141,14 @@ declare interface IConfig {
 }
 
 declare interface IModule {
+    /**
+     * Name of the module.
+     */
     name?: string;
+
+    /**
+     * Name of the folder where the module code resides. This is the subfolder under client/modules.
+     */
     folder?: string;
     ns?: string;
     styles?: {

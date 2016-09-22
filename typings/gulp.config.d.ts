@@ -1,5 +1,8 @@
+/**
+ * Functions from the utils module
+ */
 declare interface IUtils {
-    createModule: (name: string, config?: IConfig) => IModule;
+    createModule: (name: string, config?: IModule) => IModule;
     log: (message: string | Object, color: any) => void;
     exclude: (glob: string | string[]) => (string | string[]);
 }
@@ -10,6 +13,28 @@ declare let module: {
 };
 
 declare interface IConfig {
+    /**
+     * Environment-specific configuration settings.
+     */
+    config: {
+        /**
+         * Environment to use to generate the config script file if one is not specified.
+         */
+        defaultEnv: string;
+
+        /**
+         * List of additional environments to create config scripts for during a dist build.
+         * These additional config files will be named 'config.<env>.js'.
+         * Useful for when we want to redeploy the app without having to run the Gulp tasks each time.
+         */
+        generateEnvs: string[];
+    },
+
+    /**
+     * List of 3rd-party modules that all modules depend on.
+     */
+    coreDependencies: string[];
+
     /**
      * Well-known folders in the template.
      * DO NOT CHANGE.
@@ -31,6 +56,13 @@ declare interface IConfig {
         devBuildStyles: string;
         distBuild: string;
     },
+
+    /**
+     * Collection of modules in the application.
+     * The collection must be ordered in increasing levels of dependency on other application modules.
+     * For example, the common module should be first in the collection as all other modules depend on it.
+     */
+    modules: IModule[];
 
     /**
      * Preferences that control how the Gulp processes behave.
@@ -66,40 +98,14 @@ declare interface IConfig {
 
         lineEndings: 'LF'|'CR'|'CRLF';
     },
-    /**
-     * Collection of modules in the application.
-     * The collection must be ordered in increasing levels of dependency on other application modules.
-     * For example, the common module should be first in the collection as all other modules depend on it.
-     */
-    modules: IModule[];
-
-    /**
-     * List of 3rd-party modules that all modules depend on.
-     */
-    coreDependencies: string[];
 
     scripts: {
+        /**
+         * Whether to emit source maps for the generated JavaScript files.
+         * This is enabled by default, and the source maps are embedded into the JavaScript files,
+         * so no additional .js.map files are created.
+         */
         sourceMaps: boolean;
-    };
-
-    /**
-     * Global style settings for the application.
-     */
-    styles: {
-        /**
-         * Set to true if you use LESS in the application.
-         */
-        usesLess: boolean;
-
-        /**
-         * Set to true if you use SASS in the application.
-         */
-        usesSass: boolean;
-
-        injections: string[];
-        css: string[];
-        less: string[];
-        sass: string[];
     };
 
     /**
@@ -118,21 +124,32 @@ declare interface IConfig {
     };
 
     /**
-     * Environment-specific configuration settings.
+     * Global style settings for the application.
+     * For module-specific style settings, refer to the config.modules structure.
      */
-    config: {
+    styles: {
         /**
-         * Environment to use to generate the config script file if one is not specified.
+         * Set to true if you use LESS in the application.
          */
-        defaultEnv: string;
+        usesLess: boolean;
 
         /**
-         * List of additional environments to create config scripts for during a dist build.
-         * These additional config files will be named 'config.<env>.js'.
-         * Useful for when we want to redeploy the app without having to run the Gulp tasks each time.
+         * Set to true if you use SASS in the application.
          */
-        generateEnvs: string[];
-    },
+        usesSass: boolean;
+
+        /**
+         * Array of .css files to inject into the index.html. Order is important here because the
+         * files are injected in the order they appear in the array.
+         */
+        injections: string[];
+
+        css: string[];
+
+        less: string[];
+
+        sass: string[];
+    };
 
     /**
      * TSLint settings for different sets of Typescript files.
@@ -151,9 +168,10 @@ declare interface IModule {
      */
     folder?: string;
     ns?: string;
+    dependencies?: string[];
     styles?: {
-        less: string[];
-        sass: string[];
+        less?: string[];
+        sass?: string[];
     }[];
     jsOutputFolder?: string;
     jsToInject?: string[];

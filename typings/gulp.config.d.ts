@@ -168,6 +168,10 @@ declare interface IModule {
      */
     folder?: string;
     ns?: string;
+
+    /**
+     * Additional module dependencies specific to only this module.
+     */
     dependencies?: string[];
     styles?: {
         less?: string[];

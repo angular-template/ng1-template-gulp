@@ -65,6 +65,15 @@ declare interface IConfig {
     modules: IModule[];
 
     /**
+     * Options for various NPM plugins.
+     */
+    options: {
+        typescriptBuild: any;
+        typescriptVet: any;
+        htmlMin: any;
+    },
+
+    /**
      * Preferences that control how the Gulp processes behave.
      */
     preferences: {

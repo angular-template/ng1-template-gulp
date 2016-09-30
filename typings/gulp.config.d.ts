@@ -7,10 +7,10 @@ declare interface IUtils {
     exclude: (glob: string | string[]) => (string | string[]);
 }
 
-declare function require(name: string): (IUtils | any);
-declare let module: {
-    exports: (config: any) => void;
-};
+// declare function require(name: string): (IUtils | any);
+// declare let module: {
+//     exports: (config: any) => void;
+// };
 
 declare interface IConfig {
     /**

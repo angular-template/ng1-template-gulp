@@ -7,11 +7,6 @@ declare interface IUtils {
     exclude: (glob: string | string[]) => (string | string[]);
 }
 
-// declare function require(name: string): (IUtils | any);
-// declare let module: {
-//     exports: (config: any) => void;
-// };
-
 declare interface IConfig {
     /**
      * Environment-specific configuration settings.
@@ -106,6 +101,13 @@ declare interface IConfig {
         launchBrowserOnServe: boolean | string,
 
         lineEndings: 'LF'|'CR'|'CRLF';
+
+        /**
+         * Indicates whether to add static file configuration to copy images in module folders to
+         * the output folder.
+         * Default is true.
+         */
+        addModuleImagesToStaticFiles: boolean;
     },
 
     scripts: {

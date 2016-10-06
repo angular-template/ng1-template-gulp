@@ -132,6 +132,11 @@ declare interface IConfig {
             src: string | string[];
             dest: string;
         }};
+
+        files: {[name: string]: (rootFolder: string) => {
+            src: string | string[];
+            dest: string;
+        }};
     };
 
     /**

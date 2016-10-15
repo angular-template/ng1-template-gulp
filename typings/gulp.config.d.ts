@@ -66,6 +66,7 @@ declare interface IConfig {
         typescriptBuild: any;
         typescriptVet: any;
         htmlMin: any;
+        autoPrefixer: any;
     },
 
     /**
@@ -153,6 +154,11 @@ declare interface IConfig {
          * Set to true if you use SASS in the application.
          */
         usesSass: boolean;
+
+        /**
+         * Set to true to add vendor prefixes to generated CSS styles
+         */
+        autoPrefix: boolean;
 
         /**
          * Array of .css files to inject into the index.html. Order is important here because the

@@ -1,6 +1,6 @@
 {
   "name": "ng1-template-gulp",
-  "version": "1.5.0-beta.1",
+  "version": "1.5.0-beta.3",
   "description": "Gulp tasks and default configurations for the Angular 1.5 template",
   "main": "index.js",
   "keywords": [
@@ -22,6 +22,7 @@
     "del": "^2.2.2",
     "gulp": "^3.9.1",
     "gulp-angular-templatecache": "^2.0.0",
+    "gulp-autoprefixer": "^3.1.1",
     "gulp-csso": "^2.0.0",
     "gulp-debug": "^2.1.2",
     "gulp-htmlmin": "^3.0.0",

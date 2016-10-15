@@ -2,7 +2,7 @@
  * Functions from the utils module
  */
 declare interface IUtils {
-    createModule: (name: string, peerDependencies?: string[], config?: IModule) => IModule;
+    createModule: (name: string, peerDependencies: string[], config?: IModule) => IModule;
     log: (message: string | Object, color: any) => void;
     exclude: (glob: string | string[]) => (string | string[]);
 }

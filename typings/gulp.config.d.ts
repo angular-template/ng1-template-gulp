@@ -176,7 +176,7 @@ declare interface IConfig {
     /**
      * TSLint settings for different sets of Typescript files.
      */
-    tslint: {[name: string]: ITsLintRule}
+    tslint: {[name: string]: ITsLintRule};
 }
 
 declare interface IModule {

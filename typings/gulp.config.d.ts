@@ -138,6 +138,8 @@ declare interface IConfig {
             src: string | string[];
             dest: string;
         }};
+
+        scripts: string[];
     };
 
     /**

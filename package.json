@@ -60,6 +60,6 @@
     "typings": "^2.0.0",
     "vinyl-paths": "^2.1.0",
     "wiredep": "^4.0.0",
-    "yargs": "^6.5.0"
+    "yargs": "^8.0.1"
   }
 }

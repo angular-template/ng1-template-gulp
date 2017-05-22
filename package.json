@@ -56,7 +56,7 @@
     "run-sequence": "^1.2.2",
     "tslint": "^4.0.2",
     "tslint-stylish": "^2.1.0-beta",
-    "typescript": "^2.1.4",
+    "typescript": "^2.3.3",
     "typings": "^2.0.0",
     "vinyl-paths": "^2.1.0",
     "wiredep": "^4.0.0",

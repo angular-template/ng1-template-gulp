@@ -54,7 +54,7 @@
     "open": "0.0.5",
     "require-dir": "^0.3.0",
     "run-sequence": "^1.2.2",
-    "tslint": "^4.0.2",
+    "tslint": "^5.4.1",
     "tslint-stylish": "^2.1.0-beta",
     "typescript": "^2.1.4",
     "typings": "^2.0.0",
